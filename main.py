@@ -10,8 +10,9 @@ import smtplib
 
 #--------------------------------------------------------
 engine=pyttsx3.init('sapi5')
+
 voices=engine.getProperty('voices')
-engine.setProperty('voice',voices[0].id)
+engine.setProperty('voice',voices[1].id)
 MYNAME='Roshan'
 #--------------------------------------------------------
 #this function will speak what pe pass into it
@@ -76,23 +77,25 @@ if ('wikipedia' in query.split()) or ('who' in query.split()):
     result = wikipedia.summary(query )
     speak(result)
 elif 'youtube' in query.split():
-
-
     url='youtube.com'
     chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 
     webbrowser.get(chrome_path).open(url)
 elif 'google' in query.split():
-
-
     url='google.com'
     chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 
     webbrowser.get(chrome_path).open(url)
 elif 'facebook' in query.split():
-
-
     url='facebook.com'
     chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 
     webbrowser.get(chrome_path).open(url)
+elif 'play music' in query:
+    songs_dir = "C:\\Users\\Roshan84ya\\Music"
+    songs = os.listdir(songs_dir)
+    print(songs)
+    os.startfile(os.path.join(songs_dir ,songs[0]))
+elif ('the time' in query) or ('time' in query):
+    strtime=datetime.datetime.now().strftime("%H:%M:%S")
+    speak("It's {}".format(strtime))
