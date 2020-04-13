@@ -12,6 +12,6 @@ def takecommand():
 
         print('user said: {}\n'.format(query))
     except Exception as e:
-        print("Say that again please")
+
         query=None
     return query

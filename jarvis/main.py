@@ -20,7 +20,22 @@ wishme(MYNAME)
 
 
 query=takecommand()
+while query==None:
+
+    speak("You have not said anything ")
+    speak("Do you want a break")
+    query = takecommand()
+    if query==None:
+        continue
+
+    elif query.lower()=='yes':
+        speak('okay Have a nice day {}'.format(MYNAME))
+        exit()
+    else:
+        break
+
 query=" ".join([i.lower() for i in query.split()])
+
 
 
 
@@ -52,3 +67,7 @@ elif 'play' in query.split() and 'music' in query.split():
 elif ('the time' in query) or ('time' in query):
     strtime=datetime.datetime.now().strftime("%H:%M:%S")
     speak("It's {}".format(strtime))
+elif 'say' in query.split() or 1:
+
+    
+    speak(query)
